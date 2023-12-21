@@ -11,8 +11,10 @@ In order to make Arrow Database Connectivity ('ADBC' \url{https://arrow.apache.o
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://adbi.r-dbi.org}
   \item \url{https://github.com/r-dbi/adbi}
   \item \url{https://arrow.apache.org/adbc/}
+  \item Report bugs at \url{https://github.com/r-dbi/adbi/issues}
 }
 
 }
