@@ -19,8 +19,15 @@ dbBind_AdbiResult <- function(res, params, ...) {
     params <- as.list(params)
   }
 
+  fct <- vapply(params, is.factor, logical(1L))
+
+  if (any(fct)) {
+    warning("Binding factors as character.", call. = FALSE)
+    params[fct] <- lapply(params[fct], as.character)
+  }
+
   if (is.list(params) && !inherits(params, "data.frame")) {
-    params <- as.data.frame(params, fix.empty.names = FALSE)
+    params <- as.data.frame(lapply(params, I), fix.empty.names = FALSE)
   }
 
   if (!isTRUE(meta(res, "prepared"))) {
