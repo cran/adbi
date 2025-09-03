@@ -3,7 +3,6 @@ if (identical(Sys.getenv("NOT_CRAN"), "true") &&
 
   DBItest::test_all(
     skip = c(
-
       "package_name",
 
       # options(adbi.allow_multiple_results = FALSE)
@@ -36,12 +35,9 @@ if (identical(Sys.getenv("NOT_CRAN"), "true") &&
       "stream_bind_multi_row_zero_length",
 
       # misc issues with well understood causes
-      "connect_bigint_character", # apache/arrow-nanoarrow#324
-      "data_logical", # r-dbi/DBItest#308
-      "create_table_visible_in_other_connection", # r-dbi/DBItest#297
+      "create_table_visible_in_other_connection", # apache/arrow-adbc#1591
       "quote_identifier_string", # apache/arrow-adbc#1395
       "read_table_empty", # apache/arrow-adbc#1400
-      "list_objects_features", # r-dbi/DBItest#339
 
       # misc issues with poorly understood causes
       "append_table_new",

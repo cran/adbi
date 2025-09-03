@@ -1,6 +1,6 @@
 Package: adbi
 Title: 'DBI' Compliant Database Access Using 'ADBC'
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     c(person(given = "Nicolas",
              family = "Bennett",
@@ -21,7 +21,7 @@ Suggests: testthat, covr, DBItest (>= 1.8.0), adbcsqlite (>= 0.8.0),
         withr, bit64, utils, arrow
 Config/Needs/website: r-dbi/dbitemplate
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Config/autostyle/scope: line_breaks
 Config/autostyle/strict: false
 Collate: 'adbi-package.R' 'AdbiDriver.R' 'AdbiConnection.R'
@@ -66,12 +66,12 @@ Collate: 'adbi-package.R' 'AdbiDriver.R' 'AdbiConnection.R'
         'dbWriteTable_AdbiConnection_Id_data.frame.R'
         'dbWriteTable_AdbiConnection_SQL_data.frame.R'
         'dbWriteTable_AdbiConnection_character_data.frame.R' 'export.R'
-        'nanoarrow.R' 'show_AdbiConnection.R' 'show_AdbiDriver.R'
-        'show_AdbiResult.R' 'show_AdbiResultArrow.R' 'utils.R'
+        'show_AdbiConnection.R' 'show_AdbiDriver.R' 'show_AdbiResult.R'
+        'show_AdbiResultArrow.R' 'utils.R'
 NeedsCompilation: no
-Packaged: 2024-01-25 16:42:16 UTC; nbennett
+Packaged: 2025-09-03 20:39:58 UTC; nbennett
 Author: Nicolas Bennett [aut, cre],
   Voltron Data [fnd]
 Maintainer: Nicolas Bennett <nicolas@cynkra.com>
 Repository: CRAN
-Date/Publication: 2024-01-25 17:10:05 UTC
+Date/Publication: 2025-09-03 20:50:08 UTC
