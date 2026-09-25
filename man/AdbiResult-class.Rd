@@ -3,7 +3,8 @@
 %   R/dbBind_AdbiResult.R, R/dbClearResult_AdbiResult.R,
 %   R/dbColumnInfo_AdbiResult.R, R/dbGetRowCount_AdbiResult.R,
 %   R/dbGetRowsAffected_AdbiResult.R, R/dbGetStatement_AdbiResult.R,
-%   R/dbHasCompleted_AdbiResult.R, R/dbIsValid_AdbiResult.R, R/show_AdbiResult.R
+%   R/dbHasCompleted_AdbiResult.R, R/dbIsValid_AdbiResult.R,
+%   R/show_AdbiResult.R
 \docType{class}
 \name{AdbiResult-class}
 \alias{AdbiResult-class}
@@ -64,6 +65,11 @@ i.e. \link[DBI:DBIDriver-class]{DBI::DBIDriver}, \link[DBI:DBIConnection-class]{
 or a \link[DBI:DBIResult-class]{DBI::DBIResult}}
 
 \item{object}{Any R object}
+}
+\value{
+The DBI methods return what their generics specify, as documented on the
+generic's help page, for example \code{\link[DBI:dbColumnInfo]{DBI::dbColumnInfo()}}. The \code{show()} method
+is called for its side effect of printing a summary.
 }
 \description{
 AdbiResult objects are created by \code{\link[DBI:dbSendQuery]{DBI::dbSendQuery()}} or

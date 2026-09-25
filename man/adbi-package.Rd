@@ -18,7 +18,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Nicolas Bennett \email{nicolas@cynkra.com}
+\strong{Maintainer}: Nicolas Bennett \email{nicolas@cynkra.com} [copyright holder]
+
+Authors:
+\itemize{
+  \item Nicolas Bennett \email{nicolas@cynkra.com} [copyright holder]
+}
 
 Other contributors:
 \itemize{

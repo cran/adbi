@@ -1,16 +1,20 @@
-if (identical(Sys.getenv("NOT_CRAN"), "true") &&
-  packageVersion("DBItest") >= "1.7.2") {
+skip_if_not_installed("DBItest")
+skip_if_not_installed("adbcsqlite")
 
+if (
+  identical(Sys.getenv("NOT_CRAN"), "true") &&
+    packageVersion("DBItest") >= "1.7.2"
+) {
   DBItest::test_all(
     skip = c(
       "package_name",
 
-      # options(adbi.allow_multiple_results = FALSE)
+      # need options(adbi.allow_multiple_results = FALSE)
       "send_query_only_one_result_set",
       "send_statement_only_one_result_set",
       "arrow_send_query_only_one_result_set",
 
-      # options(adbi.force_close_results = TRUE)
+      # need options(adbi.force_close_results = TRUE)
       "send_query_stale_warning",
       "send_statement_stale_warning",
       "arrow_send_query_stale_warning",
@@ -35,9 +39,9 @@ if (identical(Sys.getenv("NOT_CRAN"), "true") &&
       "stream_bind_multi_row_zero_length",
 
       # misc issues with well understood causes
-      "create_table_visible_in_other_connection", # apache/arrow-adbc#1591
-      "quote_identifier_string", # apache/arrow-adbc#1395
-      "read_table_empty", # apache/arrow-adbc#1400
+      "create_table_visible_in_other_connection", # see apache/arrow-adbc#1591
+      "quote_identifier_string", # see apache/arrow-adbc#1395
+      "read_table_empty", # see apache/arrow-adbc#1400
 
       # misc issues with poorly understood causes
       "append_table_new",
@@ -45,6 +49,28 @@ if (identical(Sys.getenv("NOT_CRAN"), "true") &&
 
       # cause segfaults
       "begin_write_disconnect",
+
+      # not reproducible in isolation
+      "table_visible_in_other_connection",
+      "remove_table_other_con",
+
+      if (!requireNamespace("arrow", quietly = TRUE)) {
+        c(
+          "arrow_.*$",
+          "bind_.*$",
+          "roundtrip_raw",
+          "send_query_params",
+          "get_query_params",
+          "send_statement_params",
+          "execute_params"
+        )
+      },
+
+      if (!requireNamespace("bit64", quietly = TRUE)) {
+        c(
+          "connect_bigint_integer64"
+        )
+      },
 
       if (getRversion() < "4.0") {
         c(

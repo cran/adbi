@@ -4,9 +4,9 @@
 %   R/dbBegin_AdbiConnection.R, R/dbCommit_AdbiConnection.R,
 %   R/dbDataType_AdbiConnection.R, R/dbExistsTable_AdbiConnection_Id.R,
 %   R/dbExistsTable_AdbiConnection_SQL.R,
-%   R/dbExistsTable_AdbiConnection_character.R,
-%   R/dbGetInfo_AdbiConnection.R, R/dbIsValid_AdbiConnection.R,
-%   R/dbListFields_AdbiConnection_Id.R, R/dbListFields_AdbiConnection_SQL.R,
+%   R/dbExistsTable_AdbiConnection_character.R, R/dbGetInfo_AdbiConnection.R,
+%   R/dbIsValid_AdbiConnection.R, R/dbListFields_AdbiConnection_Id.R,
+%   R/dbListFields_AdbiConnection_SQL.R,
 %   R/dbListFields_AdbiConnection_character.R, R/dbListTables_AdbiConnection.R,
 %   R/dbQuoteIdentifier_AdbiConnection_character.R,
 %   R/dbQuoteLiteral_AdbiConnection_character.R,
@@ -183,6 +183,11 @@ the names are the names of new table's columns. If missing, types inferred
 with \code{\link[DBI:dbDataType]{DBI::dbDataType()}}).}
 
 \item{object}{Any R object}
+}
+\value{
+The DBI methods return what their generics specify, as documented on the
+generic's help page, for example \code{\link[DBI:dbListTables]{DBI::dbListTables()}}. The \code{show()} method
+is called for its side effect of printing a summary.
 }
 \description{
 AdbiConnection objects are created by passing \code{\link[=adbi]{adbi()}} as first

@@ -29,32 +29,22 @@ NULL
 #'   adbi("adbcsqlite")
 #' }
 adbi <- function(driver = NA_character_) {
-
   if (inherits(driver, "adbc_driver")) {
     return(new("AdbiDriver", driver = driver))
   }
 
   if (is.function(driver)) {
-
     drv_obj <- driver()
-
   } else {
-
     if (is.na(driver)) {
-
       pkg <- "adbcdrivermanager"
       fun <- "adbc_driver_monkey"
-
     } else {
-
       driver <- strsplit(driver, "::", fixed = TRUE)[[1L]]
 
       if (length(driver) == 1L) {
-
         pkg <- fun <- driver
-
       } else {
-
         stopifnot(length(driver) == 2L)
 
         pkg <- driver[1L]
@@ -83,6 +73,11 @@ adbi <- function(driver = NA_character_) {
 #' correct method in [DBI::dbConnect()]. They are a superclass of the
 #' [DBI::DBIDriver-class] class, and used purely for dispatch.
 #' The "Usage" section lists the class methods overridden by \pkg{adbi}.
+#'
+#' @return
+#' The DBI methods return what their generics specify, as documented on the
+#' generic's help page, for example [DBI::dbGetInfo()]. The `show()` method is
+#' called for its side effect of printing a summary.
 #'
 #' @keywords internal
 #' @export

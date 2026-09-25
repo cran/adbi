@@ -1,10 +1,14 @@
 #' @include AdbiConnection.R
 NULL
 
-AdbiResultArrow <- function(connection, statement, immediate = NULL,
-                            type = c("query", "statement"), bigint = NULL,
-                            rows_affected_callback = identity) {
-
+AdbiResultArrow <- function(
+  connection,
+  statement,
+  immediate = NULL,
+  type = c("query", "statement"),
+  bigint = NULL,
+  rows_affected_callback = identity
+) {
   init_result(
     connection = connection,
     statement = statement,
@@ -22,6 +26,11 @@ AdbiResultArrow <- function(connection, statement, immediate = NULL,
 #' encapsulate the result of an SQL query (a `SELECT` statement). They are a
 #' superclass of the [DBI::DBIResultArrow-class] class. The "Usage" section
 #' lists the class methods overridden by \pkg{adbi}.
+#'
+#' @return
+#' The DBI methods return what their generics specify, as documented on the
+#' generic's help page, for example [DBI::dbFetchArrow()]. The `show()` method
+#' is called for its side effect of printing a summary.
 #'
 #' @seealso
 #' The corresponding generic functions
